@@ -1,3 +1,11 @@
+/**
+ * @file Loops Tools - Get Query From Log ( laravel log file )
+ * @author Farindra <farindra.project@gmail.com>
+ * @copyright 2020 loops.id
+ * @version 1.0.0
+ * @tutorial https://github.com/farindra/loops-tools
+ */
+
 /** define ora library for spinner effect */
 
 const ora = require('ora');
