@@ -323,6 +323,9 @@ const convert = {
                 const noSql_file = await lib.writeAppendToFile( noSql.join('\n') , filename_other );
 
                 if (sql_file && noSql_file) {
+                    
+                    const  unread =  count => { return (count > 0)? `With unread sql line: ${count}, you can find this on OTHER-ERROR...txt file` : ''};
+                    spinner.succeed(`Write into file: ${count} of ${found} | ${unread(found - count)}`);
             
                     console.log([ 
                             `\n${('=').repeat(70)}`,
@@ -332,7 +335,6 @@ const convert = {
                         ].join('\n')
                     );
 
-                    spinner.succeed();
 
                 } 
 
