@@ -39,7 +39,7 @@ const lib = {
     },
 
     /**
-     * alternative for timout promise
+     * alternative for timeout promise
      * 
      * @param {number=} ms in millisecond
      */
@@ -115,7 +115,7 @@ const lib = {
 
             return (`\n\n${timeStamp}\n${attribute} values (${query.join(',')});`);
 
-        }catch(error){
+        } catch(error) {
 
             console.log(error);
 
@@ -171,7 +171,7 @@ const lib = {
 const convert = {
 
     /**
-     * conver log file into query file
+     * convert log file into query file
      */
     fileToQuery : () => {
         
@@ -359,7 +359,7 @@ const convert = {
 
 };
 
-// run tool
+// start the tool
 convert.fileToQuery();
     
   
