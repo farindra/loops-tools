@@ -1,14 +1,14 @@
-/** ora library for spinner effect */
+/** define ora library for spinner effect */
 
 const ora = require('ora');
 
 const spinner = ora('Please Wait...');
 
-/** moment library for date manipulation */
+/** define moment library for date manipulation */
 
 const moment = require('moment');
 
-/** object for library */
+/** object method of library */
 
 const lib = {
 
@@ -72,16 +72,16 @@ const lib = {
 
             // filter text if not contain "(SQL: " & ")) {" 
 
-            if ( !text.includes("(SQL: ") || !text.includes(")) {")) {
+            if (!text.includes('(SQL: ') || !text.includes(')) {')) {
 
                 return '#none';
            
             }
 
 
-            const start = text.indexOf("(SQL: ", 0) + 6;
+            const start = text.indexOf('(SQL: ', 0) + 6;
 
-            const end = text.indexOf(")) {", 0) + 1 ;
+            const end = text.indexOf(')) {', 0) + 1 ;
 
             const timeStamp = `# ${text.substring( 0, start-6)}`;
 
@@ -166,6 +166,8 @@ const lib = {
 
 };
 
+/** object methods of conversion */
+
 const convert = {
 
     /**
@@ -173,7 +175,7 @@ const convert = {
      */
     fileToQuery : () => {
         
-        console.log(`\nRunning Tools - Log To Query File\n==================================\n`);
+        console.log(`\nRunning Tools - Get Query From Log ( laravel log file )\n${('=').repeat(70)}\n`);
 
         spinner.start('Checking Log File');
 
@@ -182,9 +184,9 @@ const convert = {
         
         if (process.argv.length < 3) {
 
-            spinner.fail("Filename Attribute Not Found");
+            spinner.fail('Filename Attribute Not Found');
        
-            console.log('Usage: node ' + process.argv[1] + ' FILENAME');
+            console.log(`Usage: node ${process.argv[1]} FILENAME`);
        
             return;
        
@@ -207,7 +209,7 @@ const convert = {
 
             spinner.succeed();
 
-            spinner.start("Reading Log File") ;
+            spinner.start('Reading Log File') ;
 
 
             try {
@@ -216,9 +218,9 @@ const convert = {
             
                 const total_line = log_file.length;
             
-                const filename = './results/LOG-TO-QUERY-FILE-' + moment().format('YYYY-MM-DD-hhmmss') + '.sql';
+                const filename = `./results/LOG-TO-QUERY-FILE-${moment().format('YYYY-MM-DD-hhmmss')}.sql`;
 
-                const filename_other = './results/OTHER-ERROR-' + moment().format('YYYY-MM-DD-hhmmss') + '.sql';
+                const filename_other = `./results/OTHER-ERROR-${moment().format('YYYY-MM-DD-hhmmss')}.txt`;
 
                 let sql = [], noSql = [], string = [];
 
@@ -235,7 +237,7 @@ const convert = {
 
                     if ( lib.isDate( item.substring(1, 11) ) ){
 
-                        // await lib.waitFor(50); // <--- give count effect delay for 50ms
+                        await lib.waitFor(50); // <--- give count effect delay for 50ms
 
 
                         // find line contain string 'SQLSTATE' and set copy to true 
@@ -323,7 +325,7 @@ const convert = {
                 if (sql_file && noSql_file) {
             
                     console.log([ 
-                            `\n==================================`,
+                            `\n${('=').repeat(70)}`,
                             `\nQuery File is ready at :  ${filename}`,
                             `\nOther Error File is ready at :  ${filename_other}\n`,
                             `Succcess!\n`,
@@ -352,7 +354,7 @@ const convert = {
 
 };
 
-// run convertion
+// run tool
 convert.fileToQuery();
     
   
