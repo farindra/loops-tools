@@ -1,0 +1,16 @@
+{
+  "name": "loops-tools",
+  "version": "1.0.0",
+  "description": "tools for loops developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no baba specified\" && exit 1",
+    "get-query-from-log": "node ./src/get_query_from_log.js $npm_config_log_file"
+  },
+  "author": "farindra",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.26.0",
+    "ora": "^4.0.4"
+  }
+}
