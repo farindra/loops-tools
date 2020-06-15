@@ -331,7 +331,7 @@ const convert = {
                             `\n${('=').repeat(70)}`,
                             `\nQuery File is ready at :  ${filename}`,
                             `\nOther Error File is ready at :  ${filename_other}\n`,
-                            `Succcess!\n`,
+                            `Success!\n`,
                         ].join('\n')
                     );
 
